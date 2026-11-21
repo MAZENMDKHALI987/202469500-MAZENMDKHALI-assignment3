@@ -36,7 +36,8 @@ The contact form is a front-end demonstration. It does not send email to a recip
 - CSS3 for responsive layout, light/dark theme styling, and transitions.
 - Vanilla JavaScript for page interactions and client-side validation.
 - Browser `localStorage` for the selected color theme.
-- Google Fonts (Inter) and Unsplash for externally hosted visual resources.
+- DummyJSON Quotes API for a random inspirational quote.
+- Google Fonts (Inter) for the externally hosted font.
 
 There is no framework, package manager, build step, or server-side component.
 
@@ -49,6 +50,12 @@ The page contains a hero introduction, About section, project cards, Contact sec
 ### Time-based greeting
 
 When the document is ready, JavaScript reads the browser's local time and changes the greeting to “Good morning,” “Good afternoon,” or “Good evening.”
+
+### Random quote API
+
+During page initialization, JavaScript sends a `GET` request to `https://dummyjson.com/quotes/random` with the Fetch API. A successful JSON response updates the quote and author elements.
+
+If the network request fails or a response cannot be processed, the promise chain catches the error, logs it to the browser console, and replaces the loading text with “Failed to load quote.” and “Unknown.” This keeps the page usable when the external service is unavailable.
 
 ### Theme toggle
 
@@ -75,8 +82,8 @@ CSS Grid is used for the main two-column layouts on wider screens. Media queries
 - JavaScript initialization and event listeners are registered after `DOMContentLoaded`.
 - The form disables the browser's automatic validation pop-up so the page can show its own combined, accessible error feedback. The email input's native `validity.valid` property is still used to check the email format.
 - User-facing form feedback is written to the `#formStatus` element, which uses `aria-live="polite"` so assistive technology can announce updates.
-- The contact form and sent-message list work entirely in the browser. No API request, backend validation, email delivery, or message persistence is implemented.
-- External Google Fonts and Unsplash images require an internet connection. The core layout and interactions are implemented locally.
+- The contact form and sent-message list work entirely in the browser. The form does not perform backend validation, email delivery, or persistent message storage. The separate DummyJSON request only retrieves a random quote.
+- DummyJSON and Google Fonts require an internet connection. Project images are stored locally in `assets/images/`, and the core layout and interactions continue to be implemented locally.
 
 ## How to Run
 
