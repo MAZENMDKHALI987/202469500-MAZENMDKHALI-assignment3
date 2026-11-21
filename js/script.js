@@ -1,4 +1,6 @@
 // Theme toggle for a light/dark mode experience.
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.getElementById("themeToggle");
   const body = document.body;
@@ -43,6 +45,7 @@ fetch("https://dummyjson.com/quotes/random")
   }
 
 
+  //Start- Assignment 3 - State Management
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
@@ -55,7 +58,7 @@ fetch("https://dummyjson.com/quotes/random")
     localStorage.setItem("theme", isDark ? "dark" : "light");
     toggleButton.innerHTML = isDark ? "☀️" : "🌙";
   });
-
+//End- Assignment 3 - State Management
 
   //Start- Assignment 3 - Complex Logic
   
