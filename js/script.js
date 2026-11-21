@@ -8,6 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const sentMessagesSummary = document.getElementById("sentMessagesSummary");
   const sentMessagesEmpty = document.getElementById("sentMessagesEmpty");
   const sentMessagesList = document.getElementById("sentMessagesList");
+
+//Start- Assignment 3 - API Integration
+const quote_text = document.getElementById("quote");
+const author_text = document.getElementById("author");
+fetch("https://dummyjson.com/quotes/random")
+    .then(response => response.json())
+    .then(data => {
+        quote_text.innerHTML = data.quote;
+        author_text.innerHTML = data.author;
+    })
+    .catch(error => {
+        console.error("Error fetching quote:", error);
+        quote_text.innerHTML = "Failed to load quote.";
+        author_text.innerHTML = "Unknown";
+    });
+
+
+//End- Assignment 3 - API Integration
+
+
   let sentMessageCount = 0;
 
   form.noValidate = true;
