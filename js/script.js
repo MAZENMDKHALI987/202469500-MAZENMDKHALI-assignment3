@@ -42,7 +42,7 @@ fetch("https://dummyjson.com/quotes/random")
     greeting.textContent = "Good evening";
   }
 
-// 3. Data Handling
+
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
@@ -55,9 +55,11 @@ fetch("https://dummyjson.com/quotes/random")
     localStorage.setItem("theme", isDark ? "dark" : "light");
     toggleButton.innerHTML = isDark ? "☀️" : "🌙";
   });
-//End of 3. Data Handling
 
-  form.addEventListener("submit", (event) => {
+
+  //Start- Assignment 3 - Complex Logic
+  
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(form);
     const name = String(formData.get("name") ?? "").trim();
@@ -125,3 +127,5 @@ fetch("https://dummyjson.com/quotes/random")
     form.reset();
   });
 });
+
+//End- Assignment 3 - Complex Logic
